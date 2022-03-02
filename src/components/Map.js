@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import { TRACKING_DATA } from './TrackingsData';
 import TrackerMarker from './TrackerMarker';
@@ -6,8 +6,6 @@ import { formatUTCDate } from '../utils/utils';
 
 
 const Map = () => {
-  
-  const API_KEY = "AIzaSyBcLSMRB3EJnxl5SFrW4OEXhvLoPKl2pbw"
 
   const markers =
   TRACKING_DATA &&
@@ -42,7 +40,7 @@ const Map = () => {
     <div className="map">
       <GoogleMapReact
         bootstrapURLKeys={{
-          key: API_KEY
+          key: process.env.REACT_APP_MAP_API_KEY
         }}
         defaultZoom={12}
         defaultCenter={{lat: 6.5505329, lng:  3.3768363}}
